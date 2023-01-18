@@ -18,6 +18,10 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "@babylonjs/core": "^5.42.2",
+    "@babylonjs/gui": "^5.42.2",
+    "@babylonjs/loaders": "^5.42.2",
+    "babylonjs": "^5.42.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -26,6 +30,7 @@
     "@angular-devkit/build-angular": "^15.1.1",
     "@angular/cli": "~15.1.1",
     "@angular/compiler-cli": "^15.1.0",
+    "@types/babylonjs": "^2.4.1",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
