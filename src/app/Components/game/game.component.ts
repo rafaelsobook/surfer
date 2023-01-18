@@ -538,7 +538,7 @@ export class GameComponent implements OnInit, AfterViewInit {
       leftThumbContainer.onPointerMoveObservable.add(function(coordinates:any) {
         if (leftPuck.isDown) {
             xAddPos = coordinates.x-(leftThumbContainer._currentMeasure.width*.5)-sideJoystickOffset;
-            yAddPos = adt._canvas.height - coordinates.y-(leftThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
+            // yAddPos = adt._canvas.height - coordinates.y-(leftThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
             leftPuck.floatLeft = xAddPos;
             leftPuck.floatTop = yAddPos*-1;
             leftPuck.left = leftPuck.floatLeft;
