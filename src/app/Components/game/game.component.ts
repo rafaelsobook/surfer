@@ -436,7 +436,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     })
     this._makeJoyStick(this.goLeft, this.goRight, boardSplashPS, theFront, farent, surferBody,surferPs, surferPsmesh)
     this.pressControllers(killerMesh, rotatingMesh, this.kiteInfo.Kite,boardSplashPS, theFront, farent, surferBody,surferPs, surferPsmesh)
-    this.tiltControllers()
+    this.tiltControllers(boardSplashPS, farent, surferBody,surferPs, surferPsmesh)
   }
   initWin(){
     this.canKeyPress = false
@@ -582,36 +582,36 @@ export class GameComponent implements OnInit, AfterViewInit {
       GameComponent.prototype.leftThumbContainer = leftThumbContainer
       return
   }
-  tiltControllers(){
-    // window.addEventListener("deviceorientation", e => {
-    //     let beta:any = e.beta
+  tiltControllers(boardSplashPS:any, farent:any, surferBody:any,surferPs:any, surferPsmesh:any){
+    window.addEventListener("deviceorientation", e => {
+        let beta:any = e.beta
         
-    //     if(beta < 4 && beta > -4 && this.isTilting){
-    //         if(!this.canKeyPress) return
-    //         if(this.surfingTo !== undefined){
-    //             log("will fall after keyup")
-    //             return this.fall()
-    //         } 
+        if(beta < 4 && beta > -4 && this.isTilting){
+            if(!this.canKeyPress) return
+            if(this.surfingTo !== undefined){
+                log("will fall after keyup")
+                return this.fall()
+            } 
             
-    //         this.boardSpd = -.03
-    //         this.steeringNum = 0
-    //         if(this.onBoard){
-    //             log('on board tayo kaya surfing dapat')
-    //             this.actionMode = "surfing"
-    //         }else{
-    //             this.actionMode = "0sinking"
-    //         }
-    //         boardSplashPS.stop()
-    //         this.resetRotatAndDir(farent, surferBody)
-    //         clearInterval(this.intervalForSplash)
-    //         surferPsmesh.position.z = 0
-    //         surferPs.stop()
+            this.boardSpd = -.03
+            this.steeringNum = 0
+            if(this.onBoard){
+                log('We are on board so our action is surfing')
+                this.actionMode = "surfing"
+            }else{
+                this.actionMode = "0sinking"
+            }
+            boardSplashPS.stop()
+            this.resetRotatAndDir(farent, surferBody)
+            clearInterval(this.intervalForSplash)
+            surferPsmesh.position.z = 0
+            surferPs.stop()
             
-    //         return
-    //     }
-    //     if(beta > 5 && this.isTilting && this.canKeyPress) this.goRight(farent, surferBody)
-    //     if(beta < 5 && this.isTilting && this.canKeyPress) this.goLeft(farent, surferBody)
-    // })
+            return
+        }
+        if(beta > 5 && this.isTilting && this.canKeyPress) this.goRight(farent, surferBody)
+        if(beta < 5 && this.isTilting && this.canKeyPress) this.goLeft(farent, surferBody)
+    })
   }
   pressControllers(killerMesh:any, rotatingMesh:any, Kite:any,boardSplashPS:any, theFront:any, farent:any, surferBody:any,surferPs:any, surferPsmesh:any){
     window.addEventListener("keyup", e => {
